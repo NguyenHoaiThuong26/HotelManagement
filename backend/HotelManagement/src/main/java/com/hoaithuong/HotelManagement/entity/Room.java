@@ -20,7 +20,7 @@ public class Room {
     private String roomPhotoUrl;
     private String roomDescription;
 
-    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "room", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Booking> bookings = new ArrayList<>();
 
     @Override
