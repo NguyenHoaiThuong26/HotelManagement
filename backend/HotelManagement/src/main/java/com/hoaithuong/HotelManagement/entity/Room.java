@@ -3,6 +3,7 @@ package com.hoaithuong.HotelManagement.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class Room {
     private Long id;
 
     private String roomType;
-    private String roomPrice;
+    private BigDecimal roomPrice;
     private String roomPhotoUrl;
     private String roomDescription;
 
@@ -28,9 +29,10 @@ public class Room {
         return "Room{" +
                 "id=" + id +
                 ", roomType='" + roomType + '\'' +
-                ", roomPrice='" + roomPrice + '\'' +
+                ", roomPrice=" + roomPrice +
                 ", roomPhotoUrl='" + roomPhotoUrl + '\'' +
                 ", roomDescription='" + roomDescription + '\'' +
+                ", bookings=" + bookings +
                 '}';
     }
 }
