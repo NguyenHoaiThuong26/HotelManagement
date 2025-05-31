@@ -28,11 +28,15 @@ public class JWTUtils {
     public String generateToken(UserDetails userDetails) {
         return Jwts.builder()
                 .subject(userDetails.getUsername())
+                .claim("authorities", userDetails.getAuthorities().stream()
+                        .map(auth -> auth.getAuthority())
+                        .toList())
                 .issuedAt(new Date(System.currentTimeMillis()))
                 .expiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .signWith(key)
                 .compact();
     }
+
 
     public String extractUsername(String token) {
         return extractClaims(token, Claims::getSubject);

@@ -7,7 +7,7 @@ import com.hoaithuong.HotelManagement.entity.Room;
 import com.hoaithuong.HotelManagement.exception.OurException;
 import com.hoaithuong.HotelManagement.repo.BookingRepository;
 import com.hoaithuong.HotelManagement.repo.RoomRepository;
-import com.hoaithuong.HotelManagement.service.FirebaseStorageService;
+import com.hoaithuong.HotelManagement.service.LocalFileStorageService;
 import com.hoaithuong.HotelManagement.service.interfac.IRoomService;
 import com.hoaithuong.HotelManagement.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,14 +28,15 @@ public class RoomService implements IRoomService {
     @Autowired
     private BookingRepository bookingRepository;
     @Autowired
-    private FirebaseStorageService firebaseStorageService;
+    private LocalFileStorageService localFileStorageService;
+
 
     @Override
     public Response addNewRoom(MultipartFile photo, String roomType, BigDecimal roomPrice, String description) {
         Response response = new Response();
 
         try {
-            String imageUrl = firebaseStorageService.uploadImage(photo);
+            String imageUrl = localFileStorageService.uploadImage(photo);
             Room room = new Room();
             room.setRoomPhotoUrl(imageUrl);
             room.setRoomType(roomType);
@@ -104,7 +105,7 @@ public class RoomService implements IRoomService {
         try {
             String imageUrl = null;
             if (photo != null && !photo.isEmpty()) {
-                imageUrl = firebaseStorageService.uploadImage(photo); // Sử dụng Firebase
+                imageUrl = localFileStorageService.uploadImage(photo);
             }
 
             Room room = roomRepository.findById(roomId).orElseThrow(() -> new OurException("Room Not Found"));
