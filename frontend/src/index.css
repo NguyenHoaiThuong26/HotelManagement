@@ -2,9 +2,16 @@
     margin: 0;
     font-family: Arial, sans-serif;
     color: #666;
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
     overflow-x: hidden;
 }
+
+.App {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
 
 
 .colors {
@@ -165,6 +172,9 @@ button[type="submit"]:hover {
     bottom: 0;
     width: 100%;
     font-weight: 500;
+
+    left: 0; 
+    margin: 0; 
 }
 
 
@@ -230,7 +240,6 @@ button[type="submit"]:hover {
     align-items: center;
     margin-bottom: 10px;
     padding: 20px;
-    margin-left: 45px;
 }
 
 
@@ -291,7 +300,6 @@ button[type="submit"]:hover {
 .room-list-item {
     width: calc(95% - 20px);
     height: 20vh;
-    margin: 5px auto;
     border: 1px solid #ccc;
     border-radius: 5px;
     overflow: hidden;
@@ -345,13 +353,17 @@ button[type="submit"]:hover {
 }
 
 /*View all rooms home section*/
+.all-rooms-container {
+    text-align: left;
+    padding-left: 30px;
+}
 .view-rooms-home {
-    margin: 15px 0px 0px 4.6rem;
+    margin: 15px 0px 0px 0px;
     font-size: 20px;
     font-weight: 500;
     text-decoration: underline;
     color: #FF7F50;
-
+    text-align: left;
 }
 
 
@@ -369,7 +381,7 @@ button[type="submit"]:hover {
 }
 
 .service-section {
-    margin: 0px 60px;
+    margin: 0px 12px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -1092,6 +1104,31 @@ h2 {
 .error-message {
     color: red;
     text-align: center;
+}
+
+
+/* Datepicker */
+
+.search-field .react-datepicker-wrapper {
+    width: 100%;
+    display: block;
+}
+
+.search-field .react-datepicker__input-container input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.search-field .react-datepicker {
+    font-size: 14px; /* Giảm kích thước chữ của popup nếu cần */
+}
+
+.search-field .react-datepicker__triangle {
+    display: none; /* Ẩn tam giác mặc định nếu gây lỗi bố cục */
 }
 
 

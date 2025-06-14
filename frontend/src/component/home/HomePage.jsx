@@ -2,11 +2,7 @@ import React, { useState } from "react";
 import RoomResult from "../common/RoomResult";
 import RoomSearch from "../common/RoomSearch";
 
-
-
-
 const HomePage = () => {
-
     const [roomSearchResults, setRoomSearchResults] = useState([]);
 
     // Function to handle search results
@@ -34,18 +30,21 @@ const HomePage = () => {
             <RoomSearch handleSearchResult={handleSearchResult} />
             <RoomResult roomSearchResults={roomSearchResults} />
 
-            <h4><a className="view-rooms-home" href="/rooms">All Rooms</a></h4>
+            <div className="all-rooms-container">
+                <h4><a className="view-rooms-home" href="/rooms">All Rooms</a></h4>
+            </div>
 
             <h2 className="home-services">Services at <span className="phegon-color">Phegon Hotel</span></h2>
 
             {/* SERVICES SECTION */}
-            <section className="service-section"><div className="service-card">
-                <img src="./assets/images/ac.png" alt="Air Conditioning" />
-                <div className="service-details">
-                    <h3 className="service-title">Air Conditioning</h3>
-                    <p className="service-description">Stay cool and comfortable throughout your stay with our individually controlled in-room air conditioning.</p>
+            <section className="service-section">
+                <div className="service-card">
+                    <img src="./assets/images/ac.png" alt="Air Conditioning" />
+                    <div className="service-details">
+                        <h3 className="service-title">Air Conditioning</h3>
+                        <p className="service-description">Stay cool and comfortable throughout your stay with our individually controlled in-room air conditioning.</p>
+                    </div>
                 </div>
-            </div>
                 <div className="service-card">
                     <img src="./assets/images/mini-bar.png" alt="Mini Bar" />
                     <div className="service-details">
@@ -57,7 +56,7 @@ const HomePage = () => {
                     <img src="./assets/images/parking.png" alt="Parking" />
                     <div className="service-details">
                         <h3 className="service-title">Parking</h3>
-                        <p className="service-description">We offer on-site parking for your convenience . Please inquire about valet parking options if available.</p>
+                        <p className="service-description">We offer on-site parking for your convenience. Please inquire about valet parking options if available.</p>
                     </div>
                 </div>
                 <div className="service-card">
@@ -67,12 +66,9 @@ const HomePage = () => {
                         <p className="service-description">Stay connected throughout your stay with complimentary high-speed Wi-Fi access available in all guest rooms and public areas.</p>
                     </div>
                 </div>
-
             </section>
             {/* AVAILABLE ROOMS SECTION */}
-            <section>
-
-            </section>
+            <section></section>
         </div>
     );
 }
