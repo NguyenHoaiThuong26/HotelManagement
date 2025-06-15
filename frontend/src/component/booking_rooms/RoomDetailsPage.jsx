@@ -28,6 +28,7 @@ const RoomDetailsPage = () => {
         setIsLoading(true); // Set loading state to true
         const response = await ApiService.getRoomById(roomId);
         setRoomDetails(response.room);
+        console.log("Room Details:", response.room); // Kiểm tra dữ liệu
         const userProfile = await ApiService.getUserProfile();
         setUserId(userProfile.user.id);
       } catch (error) {
