@@ -12,6 +12,11 @@ export default class ApiService {
         };
     }
 
+    // Hàm tiện ích để tạo URL đầy đủ cho ảnh
+    static getImageUrl(relativePath) {
+        return `${this.BASE_URL}${relativePath}`;
+    }
+
     /**AUTH */
 
     /* Register a new user */

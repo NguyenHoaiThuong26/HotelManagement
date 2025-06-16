@@ -31,7 +31,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 25px 70px 25px 75px;
-    background-color: white;
+    background-color: #1E2A38;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-family: Arial, sans-serif;
     font-size: 20px;
@@ -40,7 +40,7 @@
 .navbar-brand a {
     font-size: 24px;
     font-weight: bold;
-    color: #007F86;
+    color: #00BCD4;
     text-decoration: none;
 }
 
@@ -59,7 +59,7 @@
 
 .navbar-ul li a {
     text-decoration: none;
-    color: #666;
+    color: #F4F4F4;
     transition: color 0.5s;
 }
 
@@ -84,7 +84,7 @@
 .auth-container h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: #007F86;
+    color: #00BCD4;
 }
 
 .register-link {
@@ -93,12 +93,20 @@
 }
 
 .register-link a {
-    color: #007F86;
+    color: #00BCD4;
     text-decoration: none;
+}
+
+form {
+    display: flex; /* Sử dụng flexbox cho form */
+    flex-direction: column; /* Đặt các phần tử theo cột */
+    align-items: center; /* Căn giữa các phần tử con (bao gồm nút) */
 }
 
 .form-group {
     margin-bottom: 15px;
+    display: flex; /* Sử dụng flexbox */
+    flex-direction: column; /* Đặt các phần tử theo cột */
 }
 
 .form-group label {
@@ -118,19 +126,22 @@
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
+    text-align: left;
 }
 
 .form-group input {
-    width: 90%;
+    width: 338px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin: 0 auto; /* Căn giữa input theo chiều ngang */
+    display: block; /* Đảm bảo input là block element để margin auto hoạt động */
 }
 
 button[type="submit"] {
     width: 95%;
     padding: 12px;
-    background-color: #007F86;
+    background-color: #00BCD4;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -175,6 +186,83 @@ button[type="submit"]:hover {
 
     left: 0; 
     margin: 0; 
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #1E2A38;
+    color: #f0e8e8;
+    padding: 20px 0;
+    width: 100%;
+    margin-top: 20px; /* Khoảng cách với nội dung trên */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-section h4 {
+    color: #00BCD4;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.footer p {
+    color: #D3D3D3;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+    color: #D3D3D3;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #007F86;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid #666;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+    }
 }
 
 

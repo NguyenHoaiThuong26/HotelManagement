@@ -148,7 +148,8 @@ const RoomDetailsPage = () => {
       )}
       <h2>Room Details</h2>
       <br />
-      <img src={roomPhotoUrl} alt={roomType} className="room-details-image" />
+      {/* <img src={roomPhotoUrl} alt={roomType} className="room-details-image" /> */}
+      <img src={ApiService.getImageUrl(roomPhotoUrl)} alt={roomType} className="room-details-image" onError={(e) => { e.target.src = "/images/default.jpg"; }} />
       <div className="room-details-info">
         <h3>{roomType}</h3>
         <p>Price: ${roomPrice} / night</p>
