@@ -3,8 +3,10 @@ package com.hoaithuong.HotelManagement.controller;
 
 import com.hoaithuong.HotelManagement.dto.Response;
 import com.hoaithuong.HotelManagement.entity.Booking;
+import com.hoaithuong.HotelManagement.exception.OurException;
 import com.hoaithuong.HotelManagement.service.interfac.IBookingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -48,6 +50,7 @@ public class BookingController {
         Response response = bookingService.cancelBooking(bookingId);
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
+
 
 
 }

@@ -1,5 +1,6 @@
 package com.hoaithuong.HotelManagement.controller;
 
+import com.hoaithuong.HotelManagement.dto.ChangePasswordRequest;
 import com.hoaithuong.HotelManagement.dto.Response;
 import com.hoaithuong.HotelManagement.dto.UserDTO;
 import com.hoaithuong.HotelManagement.service.interfac.IUserService;
@@ -63,6 +64,15 @@ public class UserController {
         Response response = userService.updateUserProfile(currentEmail, userDTO);
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
+
+    @PostMapping("/change-password")
+    public ResponseEntity<Response> changePassword(@RequestBody ChangePasswordRequest request) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String email = authentication.getName();
+        Response response = userService.changePassword(email, request);
+        return ResponseEntity.status(response.getStatusCode()).body(response);
+    }
+
 
 
 

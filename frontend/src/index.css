@@ -626,7 +626,7 @@ button[type="submit"]:hover {
 
 .filter-select-div {
     width: 100%;
-    margin: 0px 0px 0px 4rem;
+    /* margin: 0px 0px 0px 4rem; */
 }
 
 .add-room-button {
@@ -1437,7 +1437,122 @@ h2 {
 }
 
 
+/* Add new styles for ChangePassword */
+.change-password-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
 
+.change-password-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00BCD4;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.change-password-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.change-password-container .form-group {
+    margin-bottom: 15px;
+    width: 80%;
+    max-width: 400px;
+}
+
+.change-password-container .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    text-align: left;
+}
+
+.change-password-container .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.change-password-container .form-control:focus {
+    border-color: #00BCD4;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
+}
+
+.change-password-container .update-button {
+    background-color: #00BCD4;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+    width: 80%;
+    max-width: 200px;
+}
+
+.change-password-container .update-button:hover {
+    background-color: rgb(34, 80, 128);
+}
+
+.change-password-container .error-message {
+    color: #dc3545;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.change-password-container .success-message {
+    color: #28a745;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.change-password-button {
+    background-color: #00BCD4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.change-password-button:hover {
+    background-color: rgb(34, 80, 128);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .change-password-container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .change-password-container .form-group {
+        width: 100%;
+    }
+
+    .change-password-container .update-button {
+        width: 100%;
+    }
+}
 
 
 

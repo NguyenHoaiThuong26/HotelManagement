@@ -1,5 +1,6 @@
 package com.hoaithuong.HotelManagement.service.interfac;
 
+import com.hoaithuong.HotelManagement.dto.ChangePasswordRequest;
 import com.hoaithuong.HotelManagement.dto.LoginRequest;
 import com.hoaithuong.HotelManagement.dto.Response;
 import com.hoaithuong.HotelManagement.dto.UserDTO;
@@ -22,5 +23,8 @@ public interface IUserService {
     Response getMyInfo(String email);
 
     Response updateUserProfile(String currentEmail, UserDTO updatedInfo);
+
+    Response changePassword(String email, ChangePasswordRequest request);
+
 
 }

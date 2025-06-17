@@ -23,4 +23,12 @@ public class Response {
     private List<UserDTO> userList;
     private List<RoomDTO> roomList;
     private List<BookingDTO> bookingList;
+
+    public Response(String message, int statusCode) {
+        this.message = message;
+        this.statusCode = statusCode;
+    }
+
+    public Response(){}
+
 }
