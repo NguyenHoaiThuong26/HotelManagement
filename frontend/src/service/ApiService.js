@@ -12,6 +12,11 @@ export default class ApiService {
         };
     }
 
+    // Hàm tiện ích để tạo URL đầy đủ cho ảnh
+    static getImageUrl(relativePath) {
+        return `${this.BASE_URL}${relativePath}`;
+    }
+
     /**AUTH */
 
     /* Register a new user */
@@ -167,6 +172,14 @@ export default class ApiService {
         })
         return result.data
     }
+
+    /* Update user profile */
+    static async updateUserProfile(userData) {
+    const response = await axios.put(`${this.BASE_URL}/users/update-profile`, userData, {
+        headers: this.getHeader()
+    });
+    return response.data;
+}
 
 
     /**AUTHENTICATION CHECKER */

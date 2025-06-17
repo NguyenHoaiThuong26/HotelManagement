@@ -11,10 +11,8 @@ const ProfilePage = () => {
         const fetchUserProfile = async () => {
             try {
                 const response = await ApiService.getUserProfile();
-                // Fetch user bookings using the fetched user ID
                 const userPlusBookings = await ApiService.getUserBookings(response.user.id);
-                setUser(userPlusBookings.user)
-
+                setUser(userPlusBookings.user);
             } catch (error) {
                 setError(error.response?.data?.message || error.message);
             }
@@ -50,7 +48,7 @@ const ProfilePage = () => {
             <div className="bookings-section">
                 <h3>My Booking History</h3>
                 <div className="booking-list">
-                    {user && user.bookings.length > 0 ? (
+                    {user && user.bookings && user.bookings.length > 0 ? (
                         user.bookings.map((booking) => (
                             <div key={booking.id} className="booking-item">
                                 <p><strong>Booking Code:</strong> {booking.bookingConfirmationCode}</p>
@@ -58,7 +56,14 @@ const ProfilePage = () => {
                                 <p><strong>Check-out Date:</strong> {booking.checkOutDate}</p>
                                 <p><strong>Total Guests:</strong> {booking.totalNumOfGuest}</p>
                                 <p><strong>Room Type:</strong> {booking.room.roomType}</p>
-                                <img src={booking.room.roomPhotoUrl} alt="Room" className="room-photo" />
+                                {booking.room && booking.room.roomPhotoUrl && (
+                                    <img
+                                        src={ApiService.getImageUrl(booking.room.roomPhotoUrl)}
+                                        alt="Room"
+                                        className="room-photo"
+                                        onError={(e) => { e.target.src = "/images/default.jpg"; }}
+                                    />
+                                )}
                             </div>
                         ))
                     ) : (

@@ -62,7 +62,8 @@ const FindBookingPage = () => {
                     <h3>Room Details</h3>
                     <div>
                         <p> Room Type: {bookingDetails.room.roomType}</p>
-                        <img src={bookingDetails.room.roomPhotoUrl} alt="" sizes="" srcSet="" />
+                        {/* <img src={bookingDetails.room.roomPhotoUrl} alt="" sizes="" srcSet="" /> */}
+                        <img src={ApiService.getImageUrl(bookingDetails.room.roomPhotoUrl)} alt={bookingDetails.room.roomType} onError={(e) => { e.target.src = "/images/default.jpg"; }} />
                     </div>
                 </div>
             )}
