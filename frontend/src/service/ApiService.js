@@ -173,6 +173,14 @@ export default class ApiService {
         return result.data
     }
 
+    /* Update user profile */
+    static async updateUserProfile(userData) {
+    const response = await axios.put(`${this.BASE_URL}/users/update-profile`, userData, {
+        headers: this.getHeader()
+    });
+    return response.data;
+}
+
 
     /**AUTHENTICATION CHECKER */
     static logout() {

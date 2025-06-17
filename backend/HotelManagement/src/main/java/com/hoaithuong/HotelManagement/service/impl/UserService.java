@@ -196,4 +196,30 @@ public class UserService implements IUserService {
         }
         return response;
     }
+
+    @Override
+    public Response updateUserProfile(String currentEmail, UserDTO updatedInfo) {
+        Response response = new Response();
+        try {
+            User user = userRepository.findByEmail(currentEmail)
+                    .orElseThrow(() -> new OurException("User not found"));
+
+            if (updatedInfo.getName() != null) user.setName(updatedInfo.getName());
+            if (updatedInfo.getPhoneNumber() != null) user.setPhoneNumber(updatedInfo.getPhoneNumber());
+
+            userRepository.save(user);
+
+            response.setStatusCode(200);
+            response.setMessage("Profile updated successfully");
+        } catch (OurException e) {
+            response.setStatusCode(404);
+            response.setMessage(e.getMessage());
+        } catch (Exception e) {
+            response.setStatusCode(500);
+            response.setMessage("Error updating profile: " + e.getMessage());
+        }
+        return response;
+    }
+
+
 }

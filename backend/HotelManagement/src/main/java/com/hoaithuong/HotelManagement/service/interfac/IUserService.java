@@ -2,6 +2,7 @@ package com.hoaithuong.HotelManagement.service.interfac;
 
 import com.hoaithuong.HotelManagement.dto.LoginRequest;
 import com.hoaithuong.HotelManagement.dto.Response;
+import com.hoaithuong.HotelManagement.dto.UserDTO;
 import com.hoaithuong.HotelManagement.entity.User;
 
 public interface IUserService {
@@ -19,5 +20,7 @@ public interface IUserService {
     Response getUserById(String userId);
 
     Response getMyInfo(String email);
+
+    Response updateUserProfile(String currentEmail, UserDTO updatedInfo);
 
 }

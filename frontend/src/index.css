@@ -21,8 +21,8 @@
     color: #319055;
     color: #003366;
     color: #36454F;
-    color: #007F86;
-    color: #007F86;
+    color: #00BCD4;
+    color: #00BCD4;
 }
 
 /* General Navbar Styling */
@@ -90,6 +90,7 @@
 .register-link {
     margin-top: 20px;
     font-size: 13px;
+    margin-left: 10px;
 }
 
 .register-link a {
@@ -105,16 +106,109 @@ form {
 
 .form-group {
     margin-bottom: 15px;
-    display: flex; /* Sử dụng flexbox */
-    flex-direction: column; /* Đặt các phần tử theo cột */
 }
 
 .form-group label {
     display: block;
     font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
 }
 
 
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #00BCD4;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
+}
+
+.form-control.disabled {
+    background-color: #f1f1f1;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.update-button {
+    background-color: #00BCD4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+}
+
+.update-button:hover {
+    background-color: rgb(34, 80, 128);
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+.error-message {
+    color: #dc3545;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.success-message {
+    color: #28a745;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .edit-profile-page {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .profile-details {
+        padding: 15px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .update-button,
+    .delete-button {
+        width: 100%;
+    }
+}
 /**LOGIN CSS END HERE*/
 
 
@@ -134,7 +228,6 @@ form {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin: 0 auto; /* Căn giữa input theo chiều ngang */
     display: block; /* Đảm bảo input là block element để margin auto hoạt động */
 }
 
@@ -164,7 +257,7 @@ button[type="submit"]:hover {
 
 
 .link-button {
-    background-color: #007F86;
+    background-color: #00BCD4;
     color: white;
     padding: 10px;
     border-radius: 5px;
@@ -324,7 +417,7 @@ button[type="submit"]:hover {
 .search-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
+    /* justify-content: center; */
     align-items: center;
     margin-bottom: 10px;
     padding: 20px;
@@ -361,7 +454,7 @@ button[type="submit"]:hover {
 .home-search-button {
     margin-left: 10px;
     padding: 15px 20px;
-    background-color: #007F86;
+    background-color: #00BCD4;
     font-weight: 600;
     color: #fff;
     border: none;
@@ -408,7 +501,7 @@ button[type="submit"]:hover {
 }
 
 .room-details h3 {
-    color: #007F86;
+    color: #00BCD4;
 }
 
 .room-detail-loading {
@@ -425,7 +518,7 @@ button[type="submit"]:hover {
 }
 
 .book-now-button {
-    background-color: #007F86;
+    background-color: #00BCD4;
     color: white;
     border: none;
     margin-right: 10px;
@@ -458,7 +551,7 @@ button[type="submit"]:hover {
 /*Home services section*/
 .home-services {
     font-weight: 800;
-    color: #007F86;
+    color: #00BCD4;
     text-align: center;
     margin: 5px auto 30px auto;
 }
@@ -498,7 +591,7 @@ button[type="submit"]:hover {
     font-size: 18px;
     margin-bottom: 5px;
     font-weight: 900;
-    color: #007F86;
+    color: #00BCD4;
 }
 
 .service-description {
@@ -520,15 +613,15 @@ button[type="submit"]:hover {
 .all-rooms h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: #007F86;
+    color: #00BCD4;
 }
 
 .all-room-filter-div {
-    margin-left: 5rem;
+    margin-left: 2rem;
 }
 
 .all-room-filter-div label {
-    color: #007F86;
+    color: #00BCD4;
 }
 
 .filter-select-div {
@@ -554,6 +647,7 @@ button[type="submit"]:hover {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+    margin-left: 10px;
 }
 
 
@@ -584,8 +678,8 @@ button[type="submit"]:hover {
 
 .pagination-button {
     background-color: #fff;
-    color: #007F86;
-    border: 1px solid #007F86;
+    color: #00BCD4;
+    border: 1px solid #00BCD4;
     border-radius: 5px;
     padding: 8px 12px;
     cursor: pointer;
@@ -599,7 +693,7 @@ button[type="submit"]:hover {
 
 /* Style for the current page button */
 .current-page {
-    background-color: #007F86;
+    background-color: #00BCD4;
     color: #fff;
 }
 
@@ -628,7 +722,7 @@ button[type="submit"]:hover {
 }
 
 .book-now-button {
-    background-color: #007F86;
+    background-color: #00BCD4;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -651,7 +745,48 @@ button[type="submit"]:hover {
 }
 
 .booking-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
+}
+
+.booking-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.go-back-button {
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.go-back-button:hover {
+  background-color: #999;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+
+.date-picker-container {
+  display: flex;
+  gap: 10px;
 }
 
 .booking-list {
@@ -677,16 +812,17 @@ button[type="submit"]:hover {
 
 .detail-search-field {
     /* flex: 0 0 calc(20.33% - 20px); */
-    margin: 5px;
+    flex: 1;
+    margin: 5px 0;
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .confirm-booking {
-    background-color: #007F86;
+    background-color: #00BCD4;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -696,9 +832,27 @@ button[type="submit"]:hover {
 
 .guest-container {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 20px;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.guest-input {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.guest-input label {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.guest-input input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 80px;
 }
 
 .guest-div {
@@ -717,7 +871,7 @@ button[type="submit"]:hover {
 }
 
 .confirm-booking {
-    background-color: #007F86;
+    background-color: #00BCD4;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -728,6 +882,62 @@ button[type="submit"]:hover {
 
 .confirm-booking:hover {
     background-color: rgb(34, 80, 128);
+}
+
+.total-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  width: 100%;
+}
+
+.price-details {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.price-details p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.accept-booking {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.accept-booking:hover {
+  background-color: #218838;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .date-picker-container {
+    flex-direction: column;
+  }
+
+  .guest-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .guest-input {
+    margin-bottom: 10px;
+  }
+
+  .total-price {
+    padding: 10px;
+  }
 }
 
 .booking-success-message {
@@ -775,7 +985,7 @@ button[type="submit"]:hover {
 button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #007F86;
+    background-color: #00BCD4;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -817,7 +1027,7 @@ p {
     color: #333;
     margin-bottom: 20px;
     font-weight: bold;
-    color: #007F86;
+    color: #00BCD4;
 }
 
 .admin-actions {
@@ -830,7 +1040,7 @@ p {
     padding: 15px 30px;
     font-size: 1em;
     color: white;
-    background-color: #007F86;
+    background-color: #00BCD4;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -846,7 +1056,7 @@ p {
 
 /* ROOM SEARCH RESULT */
 .book-now-button {
-    background-color: #007F86;
+    background-color: #00BCD4;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -856,7 +1066,7 @@ p {
 }
 
 .edit-room-button {
-    background-color: #007F86;
+    background-color: #00BCD4;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -885,7 +1095,7 @@ p {
 .edit-room-container h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: #007F86;
+    color: #00BCD4;
 }
 
 .error-message {
@@ -947,7 +1157,7 @@ p {
 }
 
 .update-button {
-    background-color: #28a745;
+    background-color: #00BCD4;
     color: white;
 }
 
@@ -978,7 +1188,7 @@ h2 {
     text-align: center;
     margin-bottom: 20px;
     font-size: 2em;
-    color: #007F86;
+    color: #00BCD4;
 }
 
 .search-div {
@@ -1036,7 +1246,7 @@ h2 {
     display: inline-block;
     margin-top: 10px;
     padding: 8px 15px;
-    background: #007F86;
+    background: #00BCD4;
     color: #fff;
     border-radius: 4px;
     text-decoration: none;
@@ -1082,11 +1292,11 @@ h2 {
 .profile-page h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: #007F86;
+    color: #00BCD4;
 }
 
 .profile-page h3 {
-    color: #007F86;
+    color: #00BCD4;
 }
 
 .profile-actions {
@@ -1097,7 +1307,7 @@ h2 {
 }
 
 .profile-actions button {
-    background-color: #007F86;
+    background-color: #00BCD4;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -1148,25 +1358,32 @@ h2 {
 }
 
 /* src/component/user/EditProfilePage.css */
-
 .edit-profile-page {
     max-width: 800px;
-    margin: 20px auto auto;
+    margin: 20px auto;
     padding: 20px;
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .edit-profile-page h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: #007F86;
+    color: #00BCD4;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .profile-details {
     margin-bottom: 20px;
+    text-align: left;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .profile-details p {
@@ -1253,7 +1470,7 @@ h2 {
 
     .auth-container h2 {
         font-size: 24px;
-        color: #007F86;
+        color: #00BCD4;
     }
 
     .form-group input {
@@ -1281,7 +1498,7 @@ h2 {
     }
 
     .book-now-button {
-        background-color: #007F86;
+        background-color: #00BCD4;
         color: white;
         border: none;
         padding: 5px;

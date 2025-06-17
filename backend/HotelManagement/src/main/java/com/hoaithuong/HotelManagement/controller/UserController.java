@@ -1,6 +1,7 @@
 package com.hoaithuong.HotelManagement.controller;
 
 import com.hoaithuong.HotelManagement.dto.Response;
+import com.hoaithuong.HotelManagement.dto.UserDTO;
 import com.hoaithuong.HotelManagement.service.interfac.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -52,6 +53,18 @@ public class UserController {
         Response response = userService.getUserBookingHistory(userId);
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
+
+
+    @PutMapping("/update-profile")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
+    public ResponseEntity<Response> updateUserProfile(@RequestBody UserDTO userDTO) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentEmail = authentication.getName();
+        Response response = userService.updateUserProfile(currentEmail, userDTO);
+        return ResponseEntity.status(response.getStatusCode()).body(response);
+    }
+
+
 
 
 }
