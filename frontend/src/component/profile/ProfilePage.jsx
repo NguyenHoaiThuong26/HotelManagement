@@ -30,11 +30,16 @@ const ProfilePage = () => {
         navigate('/edit-profile');
     };
 
+    const handleChangePassword = () => {
+        navigate('/change-password');
+    };
+
     return (
         <div className="profile-page">
             {user && <h2>Welcome, {user.name}</h2>}
             <div className="profile-actions">
                 <button className="edit-profile-button" onClick={handleEditProfile}>Edit Profile</button>
+                <button className="change-password-button" onClick={handleChangePassword}>Change Password</button>
                 <button className="logout-button" onClick={handleLogout}>Logout</button>
             </div>
             {error && <p className="error-message">{error}</p>}

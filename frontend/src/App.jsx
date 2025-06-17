@@ -19,6 +19,7 @@ import ManageBookingsPage from './component/admin/ManageBookingsPage';
 import EditBookingPage from './component/admin/EditBookingPage';
 import ProfilePage from './component/profile/ProfilePage';
 import EditProfilePage from './component/profile/EditProfilePage';
+import ChangePassword from './component/profile/ChangePassword';
 import { ProtectedRoute, AdminRoute } from './service/guard';
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
             <Route path="/edit-profile"
               element={<ProtectedRoute element={<EditProfilePage />} />}
             />
+            <Route path="/change-password" element={<ChangePassword />} />
 
             {/* Admin Routes */}
             <Route path="/admin"

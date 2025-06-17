@@ -175,11 +175,24 @@ export default class ApiService {
 
     /* Update user profile */
     static async updateUserProfile(userData) {
-    const response = await axios.put(`${this.BASE_URL}/users/update-profile`, userData, {
-        headers: this.getHeader()
-    });
-    return response.data;
-}
+        const response = await axios.put(`${this.BASE_URL}/users/update-profile`, userData, {
+            headers: this.getHeader()
+        });
+        return response.data;
+
+    }
+
+    /* Change user password */
+    static async changePassword(changePasswordRequest) {
+        try {
+            const response = await axios.post(`${this.BASE_URL}/users/change-password`, changePasswordRequest, {
+                headers: this.getHeader()
+            });
+            return response.data;
+        } catch (error) {
+            throw error.response?.data?.message || "Failed to change password";
+        }
+    }
 
 
     /**AUTHENTICATION CHECKER */

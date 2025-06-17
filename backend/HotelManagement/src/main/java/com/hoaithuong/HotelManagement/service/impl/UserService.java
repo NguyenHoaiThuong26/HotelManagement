@@ -1,5 +1,6 @@
 package com.hoaithuong.HotelManagement.service.impl;
 
+import com.hoaithuong.HotelManagement.dto.ChangePasswordRequest;
 import com.hoaithuong.HotelManagement.dto.LoginRequest;
 import com.hoaithuong.HotelManagement.dto.Response;
 import com.hoaithuong.HotelManagement.dto.UserDTO;
@@ -12,6 +13,7 @@ import com.hoaithuong.HotelManagement.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -220,6 +222,22 @@ public class UserService implements IUserService {
         }
         return response;
     }
+
+    @Override
+    public Response changePassword(String email, ChangePasswordRequest request) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+        if (!passwordEncoder.matches(request.getOldPassword(), user.getPassword())) {
+            return new Response("Old password is incorrect", 400);
+        }
+
+        user.setPassword(passwordEncoder.encode(request.getNewPassword()));
+        userRepository.save(user);
+
+        return new Response("Password changed successfully", 200);
+    }
+
 
 
 }

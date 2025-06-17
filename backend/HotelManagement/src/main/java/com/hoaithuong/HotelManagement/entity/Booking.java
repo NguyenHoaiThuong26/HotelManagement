@@ -30,6 +30,9 @@ public class Booking {
     private int totalNumOfGuest;
     private String bookingConfirmationCode;
 
+    private boolean isCanceled = false;
+
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
