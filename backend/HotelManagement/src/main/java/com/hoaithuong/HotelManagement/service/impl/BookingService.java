@@ -15,8 +15,11 @@ import com.hoaithuong.HotelManagement.service.interfac.IRoomService;
 import com.hoaithuong.HotelManagement.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -44,7 +47,7 @@ public class BookingService implements IBookingService {
             Room room = roomRepository.findById(roomId).orElseThrow(() -> new OurException("Room Not Found"));
             User user = userRepository.findById(userId).orElseThrow(() -> new OurException("User Not Found"));
 
-            List<Booking> existingBookings = room.getBookings();
+            List<Booking> existingBookings = bookingRepository.findByRoomIdAndIsCanceledFalse(roomId);
 
             if (!roomIsAvailable(bookingRequest, existingBookings)) {
                 throw new OurException("Room not Available for selected date range");
@@ -166,4 +169,71 @@ public class BookingService implements IBookingService {
                                 && bookingRequest.getCheckOutDate().equals(bookingRequest.getCheckInDate()))
                 );
     }
+
+    @Override
+    public Response cancelBookingAsUser(Long bookingId) {
+        Response response = new Response();
+
+        try {
+            // Lấy booking theo ID
+            Booking booking = bookingRepository.findById(bookingId)
+                    .orElseThrow(() -> new OurException("Booking not found."));
+
+            // Lấy thông tin người dùng đang đăng nhập
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            String currentEmail = authentication.getName();
+
+            // So sánh xem booking có thuộc về người dùng hiện tại không
+            if (!booking.getUser().getEmail().equals(currentEmail)) {
+                throw new OurException("You are not allowed to cancel this booking.");
+            }
+
+            // Kiểm tra ngày check-in, không cho hủy nếu là hôm nay hoặc quá khứ
+            if (booking.getCheckInDate().isBefore(LocalDate.now()) ||
+                    booking.getCheckInDate().isEqual(LocalDate.now())) {
+                throw new OurException("You cannot cancel a booking on or after the check-in date.");
+            }
+
+            // Đánh dấu là đã hủy
+            booking.setCanceled(true);
+            bookingRepository.save(booking);
+
+            response.setStatusCode(200);
+            response.setMessage("Your booking has been cancelled successfully.");
+        } catch (OurException e) {
+            response.setStatusCode(400);
+            response.setMessage(e.getMessage());
+        } catch (Exception e) {
+            response.setStatusCode(500);
+            response.setMessage("Error cancelling booking: " + e.getMessage());
+        }
+
+        return response;
+    }
+
+    @Override
+    public Response cancelBookingAsAdmin(Long bookingId) {
+        Response response = new Response();
+        try {
+            Booking booking = bookingRepository.findById(bookingId)
+                    .orElseThrow(() -> new OurException("Booking not found."));
+
+            booking.setCanceled(true);
+            bookingRepository.save(booking);
+
+            response.setStatusCode(200);
+            response.setMessage("Booking cancelled by admin.");
+        } catch (OurException e) {
+            response.setStatusCode(400);
+            response.setMessage(e.getMessage());
+        } catch (Exception e) {
+            response.setStatusCode(500);
+            response.setMessage("Error: " + e.getMessage());
+        }
+        return response;
+    }
+
+
+
+
 }

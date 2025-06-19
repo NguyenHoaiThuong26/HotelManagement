@@ -1064,6 +1064,18 @@ p {
     background-color: rgb(34, 80, 128);
 }
 
+.logout-item {
+    cursor: pointer;
+    padding: 8px 15px;
+    color: #666;
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+.logout-item:hover {
+    color: #FF007F;
+    color: #FF7F50;
+    border-radius: 4px; 
+}
 
 
 /* ROOM SEARCH RESULT */
