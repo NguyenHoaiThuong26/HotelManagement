@@ -650,6 +650,18 @@ button[type="submit"]:hover {
     margin-left: 10px;
 }
 
+.cancel-button {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.cancel-button:hover {
+  background-color: #cc0000;
+}
+
 
 
 
@@ -1052,6 +1064,18 @@ p {
     background-color: rgb(34, 80, 128);
 }
 
+.logout-item {
+    cursor: pointer;
+    padding: 8px 15px;
+    color: #666;
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+.logout-item:hover {
+    color: #FF007F;
+    color: #FF7F50;
+    border-radius: 4px; 
+}
 
 
 /* ROOM SEARCH RESULT */

@@ -44,12 +44,21 @@ public class BookingController {
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 
-    @DeleteMapping("/cancel/{bookingId}")
-    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
-    public ResponseEntity<Response> cancelBooking(@PathVariable Long bookingId) {
-        Response response = bookingService.cancelBooking(bookingId);
+    @DeleteMapping("/cancel-my-booking/{bookingId}")
+    @PreAuthorize("hasAuthority('USER')")
+    public ResponseEntity<Response> cancelMyBooking(@PathVariable Long bookingId) {
+        Response response = bookingService.cancelBookingAsUser(bookingId);
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
+
+    @DeleteMapping("/admin-cancel-booking/{bookingId}")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public ResponseEntity<Response> adminCancelBooking(@PathVariable Long bookingId) {
+        Response response = bookingService.cancelBookingAsAdmin(bookingId);
+        return ResponseEntity.status(response.getStatusCode()).body(response);
+    }
+
+
 
 
 

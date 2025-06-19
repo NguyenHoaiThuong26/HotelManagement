@@ -14,7 +14,7 @@ const FooterComponent = () => {
                     <h4>HT Hotel</h4>
                     <p>Email: info@hthotel.com</p>
                     <p>Phone: +84 123 456 789</p>
-                    <p>Address: 123 Luxury Lane, Hanoi, Vietnam</p>
+                    <p>Address: Thu Duc, Ho Chi Minh, Vietnam</p>
                 </div>
                 <div className="footer-section">
                     <h4>Explore</h4>
